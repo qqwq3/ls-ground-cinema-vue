@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+			
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+		
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.topnav{
+				width: 100%;
+				background: #333;
+				height: 70px;
+			}
+			.topnav-left{
+				width: 960px;
+				height: 70px;
+				margin:0 auto;
+			}
+			.topnav-left-logo{
+				width: 190px;
+				height: 70px;
+				background: url("http://www.dadicinema.com/images/logo.png") no-repeat center;
+			}
+	        ul,ol{list-style:none;}
+	        #box{width:100%;height:390px;position:relative;}
+	        #box li{height:390px;}
+	        #box li img{width: 100%;height: 390px;vertical-align: middle;text-align: center;}
+	        #box ol{position:absolute;z-index:99;right:600px;bottom:60px;}
+	        #box ol li{width:20px;height:20px;border-radius:20px;background:white;float:right;margin-left:15px;float:left;}
+	        #box ol li.current{background:red;width:18px;height:18px;}
+	        .swipe-bottom{
+	        	position: absolute;
+	        	bottom: 0;
+	        	left: 30%;
+	        }
+	        .swipe-bottom-btn1,.swipe-bottom-btn2{
+	        	width: 258px;
+	        	height: 55px !important;
+	        	float: left;	
+	        	text-align: center;
+	        	line-height: 55px;
+	        	font-size: 24px;
+	        	color: white;
+	           	background: url('http://www.dadicinema.com/images/nav-btn-bg.png') no-repeat center;
+				cursor: pointer;
+	        }
+	        .swipe-bottom-btn2{
+	        	margin-left: 10px;	        }
+	        .click{
+	        	background: url('http://www.dadicinema.com/images/nav-btn-active-bg.png') no-repeat center;
+	        }
+	        .bottompic{
+	        	width: 100%;
+	        	height: 220px;
+	        	background: url("http://www.dadicinema.com/images/footer_bg.jpg");
+	        }
+	        .bottompica{
+	        	width:886px;
+	        	height: 100%;
+	        	background: url(bottomimg.jpg) no-repeat center;
+	        	margin: 0 auto;
+	        }
+	        .swipedwon{
+	        	width: 960px;
+	        	height: 70px;
+	        	margin: 0 auto;
+	        }
+	        .hotmovie{
+	        	height: 70px;
+	        	width: 550px;
+	        	float: left;
+	        	line-height: 70px;
+	        	color: #d71518;
+   				font-size: 14px;
+   				font-family: "microsoft yahei";
+   				font-weight: 800;
+	        }
+	        .iosandroid{
+	        	float: right;
+	        }
+	       .iosandroid span {
+				    font-size: 12px;
+				    margin-left: 10px;
+				    color: #999;
+				    float: left;
+				    margin-top: 25px;
+				    margin: 23px 10px;
+	        }
+	        .iosandroid a{
+	        	display: block;
+	        	font-size: 12px;
+	        	float: left;
+	        	height: 60px;
+	        	text-align: center;
+	        	line-height: 70px;
+	        	text-decoration: none;
+	        	color: #999999;
+	        }
+	        .weixin{
+	        	background: url('http://www.dadicinema.com/images/weixin-pic.png') left 23px no-repeat;
+   				text-indent: 30px;
+	        }
+	        .ios{
+	        	background: url('http://www.dadicinema.com/images/apple-pic.png') left 23px no-repeat;
+   				text-indent: 30px;
+
+	        }
+	        .android{
+	        	background: url('http://www.dadicinema.com/images/android-pic.png') left 23px no-repeat; 
+	        	text-indent: 30px;
+	        }
+	        #ul{
+	        	width: 1000px;
+	        	height: 1200px;
+	        	margin: 0 auto;
+	        }
+	        .ul-li{
+	        	box-sizing: border-box;
+	        	    width: 225px;
+				    height: 386px;
+				    float: left;
+				    overflow: hidden;
+				    margin-right: 20px;
+				    position: relative;
+	        }
+	        .ul-li .poster{
+	        	width: 225px;
+	        	height: 305px;
+	        	border: none;
+	        	display: block;
+	        	z-index: 1;
+	        }
+	        .ul-li button{
+				    width: 225px;
+				    height: 70px;
+				    font-size: 20px;
+				    font-weight: 100;
+				    color: #fff;
+				    background: #b20003;
+				    text-align: center;
+				    border: none;
+				    cursor: pointer;
+				    
+	        }
+	        .xuanzuo{
+	   	        	background: url('http://www.dadicinema.com/images/buy-hover.png') no-repeat center !important;
+	        }
+	        .tip1 {
+			    width: 70px;
+			    height: 70px;
+			    background: url('http://www.dadicinema.com/images/hot-pic.png') top left no-repeat;
+			    position: absolute;
+			    left: 0px;
+			    z-index: 150;
+			    line-height: 70px;
+			    float: left;
+			}
+			.listcover{
+					padding: 15px 5px;
+				    width: 209px;
+				    height: 269px;
+				    position: absolute;
+					background: #000000;
+					top: 0;
+					background: #333;
+				    color: #fff;
+				    border: 3px solid #b20003;
+				    opacity: 0.85;
+				    z-index: 151;
+				    font-size: 12px;
+				    display: none;
+			}
+			.listcover dd{
+				font-size: 16px;
+			}
+			.listcover dt{
+				margin: 10px 0;
+			}
+			.star{
+				text-align: center;
+				z-index: 1;
+				position: absolute;
+				bottom: 80px;
+				left: 60px;
+				color: white;
+				font-size: 21px;
+				font-weight: 500;
+			}
+			.starpic{
+				width: 100px;
+				margin-left: -20px;
+				margin-right: 10px;
+			}
+			a{
+				text-decoration: none;
+				color: white; 
+			}
+		</style>
+	</head>
+	<body>
+		<div class="topnav">
+			<div class="topnav-left">
+				<div class="topnav-left-logo">				
+				</div>
+			</div>
+		</div>
+		<div id="box">
+	        <ul>
+	            <li style="background: url('http://www.dadicinema.com/images/bigshow/dadibigshow_1.jpg') no-repeat center;"></li>              
+	            <li style="background: url('http://www.dadicinema.com/images/bigshow/dadibigshow_2.jpg') no-repeat center;"></li>              
+	            <li style="background: url('http://www.dadicinema.com/images/bigshow/dadibigshow_3.jpg') no-repeat center;"></li>              
+	            <li style="background: url('http://www.dadicinema.com/images/bigshow/dadibigshow_4.jpg') no-repeat center;"></li>              
+	            <li style="background: url('http://www.dadicinema.com/images/bigshow/dadibigshow_5.jpg') no-repeat center;"></li>              
+	        </ul>
+	        <ol>
+	            <li class="current"></li>
+	            <li></li>
+	            <li></li>
+	            <li></li>
+	            <li></li>
+	        </ol>
+        	<div class="swipe-bottom">
+        		<div class="swipe-bottom-btn1 click">正在热映</div>
+        		<div class="swipe-bottom-btn2">即将上映</div>
+        	</div>
+   		 </div>
+   		 <div class="swipedwon">
+   		 	<div class="hotmovie">热门电影：</div>
+   		 	<div class="iosandroid">
+   		 		<a href="javascript:void(0);" class="android">安卓APP下载</a>
+   		 		<span>|</span>
+   		 		<a href="javascript:void(0);" class="ios">APP下载</a>
+   		 		<span>|</span>
+   		 		<a href="javascript:void(0);" class="weixin">微信公共账号</a>	 		
+   		 	</div>
+   		 </div>
+   		 <ul id="ul">
+   		 </ul>
+   		 <div class="bottompic">
+   		 	<div class="bottompica"></div>
+   		 </div>
+   		 
+   		 
+	</body>
+	<script type="text/javascript">
+		 $(function(){
+            var index =0;
+            var timer = setInterval(function(){
+                index = (index == 2) ? 0 : index + 1;          
+                $("#box ul li").hide().eq(index).show();
+                $('#box ol li').eq(index).addClass('current').siblings().removeClass('current');
+            }, 3000);
+            $("#box ol li").hover(function(){
+                var index = $(this).index();
+                $("#box ul li").eq(index).show().siblings().hide();
+                $(this).addClass('current').siblings().removeClass('current');
+            })
+            $("#box .swipe-bottom div").click(function(){
+            	$(this).addClass('click').siblings().removeClass('click');
+            })
+            $('.swipe-bottom-btn2').click(function(){
+            	$.getJSON("commingsoon.json",function(res){
+            		for(let i=0;i<12;i++){
+			        	$('.poster').eq(i).attr('src',res.commingsoon[i])		
+            		}
+            	})
+            })
+            $('.swipe-bottom-btn1').click(function(){
+            	$.getJSON("commingsoon.json",function(res){
+            		for(let i=0;i<12;i++){
+			        	$('.poster').eq(i).attr('src',res.hotplay[i])		
+            		}
+            	})
+            })
+			$.getJSON("hotplay.json",function(res){
+				for(let i=0;i<12;i++){
+				    let data = res.d[i];
+				    let score = data.score/10;
+				    let score1 = score?score:'0.0'
+				    console.log(data.poster	)
+					let list =$("<li class='ul-li'><i class='tip1'></i><img src='"+data.poster+"' class='poster'/><div class='star'><img src='' class='starpic starpic"+i+"'/>"+score1+"分</div><a href='http://127.0.0.1:8080/#/list/buy'><button>选座购票</button></a><div class='listcover'><dd>"+data.name+"</dd><dt>片长："+data.filmLength
++"分钟</dt><dt>主演："+data.actor_str+"</dt></div></li>")
+					$('#ul').append(list)
+					$('.starpic'+i).attr('src',"http://www.dadicinema.com/images/"+parseInt(score1/2)+"star_s.png")				
+
+					$('.ul-li button').mouseover(function(){
+						$(this).addClass('xuanzuo')
+					})
+					$('.ul-li button').mouseout(function(){
+						$(this).removeClass('xuanzuo')
+					})
+					$('.ul-li').mouseover(function(){
+						$(this).find('.listcover').css('display','block')
+					})
+					$('.ul-li').mouseout(function(){
+						$(this).find('.listcover').css('display','none')
+					})
+				}
+				
+			})
+        })
+	</script>
+</html>
+
+
+
